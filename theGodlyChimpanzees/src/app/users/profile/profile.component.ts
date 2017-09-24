@@ -56,7 +56,10 @@ export class ProfileComponent implements OnInit {
 
     redirectTo(rout: string) {
         // this.router.navigateByUrl('animals/' + animal.$key);
-        rout = rout.toLowerCase();
+        if (rout.indexOf('activities') > -1) {
+            rout = rout.toLowerCase();
+            rout = rout.replace(/ /g, '_');
+        }
         return this.router.navigateByUrl(rout);
     }
 

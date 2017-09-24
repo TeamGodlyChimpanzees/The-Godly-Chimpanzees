@@ -15,7 +15,7 @@ export class LoginDialogComponent implements OnInit {
 
     constructor(private fb: FormBuilder,
         private userService: UsersService,
-        public dialogRef: MdDialogRef<LoginDialogComponent>) {
+        public dialogRef: MdDialogRef<LoginDialogComponent>, private router: Router) {
         this.createForm();
     }
 
@@ -33,7 +33,10 @@ export class LoginDialogComponent implements OnInit {
     get password() { return this.loginForm.get('password'); }
 
     // submitted = false;
-
+    redirectTo(route: string) {
+        this.dialogRef.close('Pizza!');
+        this.router.navigateByUrl(route);
+    }
     // form submit
     onSubmit() {
         this.userService.logIn(this.email.value, this.password.value)

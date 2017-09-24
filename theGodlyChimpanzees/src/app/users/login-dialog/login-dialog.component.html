@@ -37,7 +37,7 @@
     <div align="center">
         <span (mouseenter)="mouseover = true" (mouseleave)="mouseover = false">
             <button md-raised-button type="submit" [disabled]="!loginForm.valid">Log In</button>
-            <a md-raised-button [routerLink]="[ '/users/register' ]">Register</a>                
+            <a md-raised-button (click)="redirectTo('/users/register')">Register</a>                
         </span>
     </div>
 </form>
